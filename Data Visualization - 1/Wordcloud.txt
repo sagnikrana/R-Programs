@@ -1,0 +1,23 @@
+# Create mfr_table of manufacturer frequencies
+mfr_table <- table(Cars93$Manufacturer)
+print(mfr_table)
+# Create the default wordcloud from this table
+wordcloud(words = names(mfr_table), 
+          freq = as.numeric(mfr_table), 
+          scale = c(2, 0.25))
+
+
+# Change the minimum word frequency
+wordcloud(words = names(mfr_table), 
+          freq = as.numeric(mfr_table), 
+          scale = c(2, 0.25), 
+          min.freq = 1)
+
+# Create model_table of model frequencies
+model_table <- table(Cars93$Model)
+print(model_table)
+# Create the wordcloud of all model names with smaller scaling
+wordcloud(words = names(model_table), 
+          freq = as.numeric(model_table), 
+          scale = c(0.75, 0.25), 
+          min.freq = 1)

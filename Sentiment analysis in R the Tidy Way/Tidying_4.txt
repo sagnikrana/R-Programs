@@ -1,0 +1,12 @@
+totals <- tidy_lyrics %>%
+  # Count by song to find the word totals for each song
+  count(song) %>%
+  # Rename the new column
+  rename(total_words = n)
+
+# Print totals    
+totals
+
+lyric_counts <- tidy_lyrics %>%
+  # Combine totals with tidy_lyrics using the "song" column
+  left_join(totals, by = "song")

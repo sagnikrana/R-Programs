@@ -1,0 +1,16 @@
+# Plot Gas vs. Temp as solid triangles
+plot(whiteside$Temp, whiteside$Gas, pch = 17)
+
+# Create indexB, pointing to "Before" data
+indexB <- which(whiteside$Insul == "Before")
+
+# Create indexA, pointing to "After" data
+indexA <- which(whiteside$Insul == "After")
+
+# Add "Before" text in blue, rotated 30 degrees, 80% size
+text(x = whiteside$Temp[indexB], y = whiteside$Gas[indexB],
+     labels = "Before", col = "blue", srt = 30, cex = 0.8)
+
+# Add "After" text in red, rotated -20 degrees, 80% size
+text(x = whiteside$Temp[indexA], y = whiteside$Gas[indexA],
+     labels = "After", col = "red", srt = -20, cex = 0.8)

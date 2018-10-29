@@ -1,0 +1,5 @@
+# Create a variable-width boxplot with log y-axis & horizontal labels
+boxplot(crim ~ rad,data = Boston,varwidth = TRUE,log = "y",las = 1)
+
+# Add a title
+title("Crime rate vs. radial highway index")

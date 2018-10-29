@@ -1,0 +1,14 @@
+# Set up a side-by-side plot array
+par(mfrow = c(1, 2))
+
+# Create the standard scatterplot
+plot(Boston$zn, Boston$rad)
+
+# Add the title
+title("Standard scatterplot")
+
+# Create the sunflowerplot
+sunflowerplot(Boston$zn, Boston$rad)
+
+# Add the title
+title("Sunflower plot")

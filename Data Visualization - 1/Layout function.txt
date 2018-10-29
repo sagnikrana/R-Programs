@@ -1,0 +1,24 @@
+# Set up the plot array
+layout(layoutMatrix, widths = rep.int(1, ncol(layoutMatrix)),
+       heights = rep.int(1, nrow(layoutMatrix)), respect = FALSE)
+
+# Construct vectors indexB and indexA
+indexB <- which(whiteside$Insul == "Before")
+indexA <- which(whiteside$Insul == "After")
+
+# Create plot 1 and add title
+plot(whiteside$Temp[indexB], whiteside$Gas[indexB],
+     ylim = c(0,8))
+title("Before data only")
+
+# Create plot 2 and add title
+
+plot(whiteside$Temp, whiteside$Gas,
+     ylim = c(0,8))
+title("Complete dataset")
+
+
+# Create plot 3 and add title
+plot(whiteside$Temp[indexA], whiteside$Gas[indexA],
+     ylim = c(0,8))
+title("After data only")

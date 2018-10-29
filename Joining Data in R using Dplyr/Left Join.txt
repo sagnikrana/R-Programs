@@ -1,0 +1,7 @@
+# Complete the code to join artists to bands
+library(dplyr)
+
+bands2 <- left_join(bands, artists, by = c("first","last"))
+
+# Examine the results
+print(bands2)

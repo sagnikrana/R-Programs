@@ -1,0 +1,9 @@
+# Identify the key columns
+movie_directors
+movie_years
+
+movie_years %>% 
+  # Left join movie_directors to movie_years
+  left_join(movie_directors, by = c("movie" = "name")) %>% 
+  # Arrange the columns using select()
+  select(year, movie, artist = name, director, studio)

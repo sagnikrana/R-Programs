@@ -1,0 +1,38 @@
+# Construct the vector keep_vars
+keep_vars <- c("calories", "protein", "fat",
+               "fibre", "carbo", "sugars")
+
+# Use keep_vars to extract the desired subset of UScereal
+df <- UScereal[keep_vars]
+
+
+# Set up a two-by-two plot array
+par(mfrow = c(2,2))
+
+# Use matplot() to generate an array of two scatterplots
+matplot(df$calories, df[, c("protein", "fat")], 
+        xlab = "calories", ylab = "")
+
+# Add a title
+title = "Two scatterplots"
+
+# Use matplot() to generate an array of three scatterplots
+matplot(df$calories, df[, c("protein", "fat","fibre")], 
+        xlab = "calories", ylab = "")
+
+# Add a title
+title = "Three scatterplots"
+
+# Use matplot() to generate an array of four scatterplots
+matplot(df$calories, df[, c("protein", "fat","fibre","carbo")], 
+        xlab = "calories", ylab = "")
+
+# Add a title
+title = "Four scatterplots"
+
+# Use matplot() to generate an array of five scatterplots
+matplot(df$calories, df[, c("protein", "fat","fibre","carbo","sugars")], 
+        xlab = "calories", ylab = "")
+
+# Add a title
+title = "Five scatterplots"

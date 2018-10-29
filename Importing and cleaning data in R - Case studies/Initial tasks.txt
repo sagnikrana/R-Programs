@@ -1,0 +1,8 @@
+# View dimensions of sales
+dim(sales)
+
+# Inspect first 6 rows of sales
+head(sales,n = 6)
+
+# View column names of sales
+names(sales)

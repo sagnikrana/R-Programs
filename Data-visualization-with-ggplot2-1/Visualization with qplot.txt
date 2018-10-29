@@ -1,0 +1,16 @@
+# basic scatter plot:
+qplot(wt, mpg, data = mtcars)
+
+# Categorical:
+# cyl
+qplot(wt, mpg, data = mtcars, size = factor(cyl))
+
+# gear
+qplot(wt, mpg, data = mtcars, size = factor(gear))
+
+# Continuous
+# hp
+qplot(wt, mpg, data = mtcars, color = hp)
+
+# qsec
+qplot(wt, mpg, data = mtcars, color = qsec)

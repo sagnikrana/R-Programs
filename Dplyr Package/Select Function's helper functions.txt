@@ -1,0 +1,34 @@
+# As usual, hflights is pre-loaded as a tbl, together with the necessary libraries.
+
+# Print out a tbl containing just ArrDelay and DepDelay
+select(hflights, ends_with("Delay"))
+
+# Print out a tbl as described in the second instruction, using both helper functions and variable names
+select(hflights, UniqueCarrier, ends_with("Num"), starts_with("Cancel"))
+
+# Print out tbl as described in the third instruction, using only helper functions.
+select(hflights, contains("Tim"), contains("Del"))
+
+
+
+
+
+'*****************************'
+
+# both hflights and dplyr are available
+
+# Finish select call so that ex1d matches ex1r
+ex1r <- hflights[c("TaxiIn", "TaxiOut", "Distance")]
+ex1d <- select(hflights,starts_with("Taxi"),Distance)
+print(ex1r)
+print(ex1d)
+# Finish select call so that ex2d matches ex2r
+ex2r <- hflights[c("Year", "Month", "DayOfWeek", "DepTime", "ArrTime")]
+ex2d <- select(hflights,Year,Month,DayOfWeek,DepTime,ArrTime)
+print(ex2r)
+print(ex2d)
+# Finish select call so that ex3d matches ex3r
+ex3r <- hflights[c("TailNum", "TaxiIn", "TaxiOut")]
+ex3d <- select(hflights,starts_with("Ta"))
+print(ex3r)
+print(ex3d)

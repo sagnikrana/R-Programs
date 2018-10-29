@@ -1,0 +1,5 @@
+# Recode cls_students as cls_type: evals
+evals <- evals %>%
+  # Create new variable
+  mutate(cls_type = ifelse(cls_students <= 18, "small",ifelse(cls_students >= 19 & cls_students <= 59, "midsize", "large")))
+glimpse(evals)

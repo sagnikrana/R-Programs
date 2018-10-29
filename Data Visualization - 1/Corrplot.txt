@@ -1,0 +1,11 @@
+# Load the corrplot library for the corrplot() function
+library(corrplot)
+library(MASS)
+# Extract the numerical variables from UScereal
+numericalVars <- UScereal[2:10]
+print(numericalVars)
+# Compute the correlation matrix for these variables
+corrmatrix <- cor(numericalVars)
+print(corrmatrix)
+# Generate the correlation ellipse plot
+corrplot(corrmatrix,method = "ellipse")

@@ -1,0 +1,14 @@
+# Create the numerical vector x
+x <- seq(0,10, length = 200)
+
+# Compute the Gaussian density for x with mean 2 and standard deviation 0.2
+gauss1 <- dnorm(x, mean = 2, sd = 0.2)
+
+# Compute the Gaussian density with mean 4 and standard deviation 0.5
+gauss2 <- dnorm(x, mean = 4, sd = 0.5)
+
+# Plot the first Gaussian density
+plot(gauss1,x,ylab = "Gaussian probability density")
+
+# Add lines for the second Gaussian density
+lines(gauss2,x,lty = "2",lwd = "3")

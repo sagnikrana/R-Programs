@@ -1,0 +1,25 @@
+players %>% 
+  # Find all players who do not appear in Salaries
+  anti_join(Salaries, by = "playerID") %>% 
+  # Join them to Appearances
+  left_join(Appearances, by = "playerID") %>%
+  # Calculate total_games for each player
+  group_by(playerID) %>% 
+  summarize(total_games = sum(G_all, na.rm = TRUE)) %>%
+  # Arrange in descending order by total_games
+  arrange(desc(total_games))
+  
+  
+  #another example
+  
+  players %>%
+  # Find unsalaried players
+  anti_join(Salaries, by = "playerID") %>% 
+  # Join Batting to the unsalaried players
+  left_join(Batting,by = "playerID") %>% 
+  # Group by player
+  group_by(playerID) %>% 
+  # Sum at-bats for each player
+  summarise(total_at_bat = sum(AB,na.rm = T)) %>% 
+  # Arrange in descending order
+  arrange(desc(total_at_bat))

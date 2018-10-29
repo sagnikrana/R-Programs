@@ -1,0 +1,10 @@
+# hflights is at your disposal as a tbl, with clean carrier names
+
+# All flights that traveled 3000 miles or more
+filter(hflights, Distance >= 3000)
+
+# All flights flown by JetBlue, Southwest, or Delta
+filter(hflights, UniqueCarrier %in% c("JetBlue", "Southwest", "Delta"))
+
+# All flights where taxiing took longer than flying
+filter(hflights, TaxiIn + TaxiOut > AirTime)

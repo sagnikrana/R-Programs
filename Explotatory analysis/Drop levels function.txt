@@ -1,0 +1,10 @@
+# Load dplyr
+library(dplyr)
+
+# Print tab
+tab
+
+# Remove align level
+comics <- comics %>%
+  filter(align != "Reformed Criminals") %>%
+  droplevels()

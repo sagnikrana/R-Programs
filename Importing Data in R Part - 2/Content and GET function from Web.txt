@@ -1,0 +1,14 @@
+# httr is already loaded
+
+# Get the url
+url <- "http://www.omdbapi.com/?apikey=ff21610b&t=Annie+Hall&y=&plot=short&r=json"
+resp <- GET(url)
+
+# Print resp
+print(resp)
+
+# Print content of resp as text
+print(content(resp,as = "text"))
+
+# Print content of resp
+print(content(resp))

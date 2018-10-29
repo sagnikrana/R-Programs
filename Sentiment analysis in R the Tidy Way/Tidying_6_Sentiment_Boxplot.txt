@@ -1,0 +1,11 @@
+lyric_sentiment %>%
+    filter(sentiment == "positive") %>%
+    # Count by song, Billboard rank, and the total number of words
+    count(song,rank,total_words) %>%
+    ungroup() %>%
+    # Use the correct dplyr verb to make two new columns
+    mutate(percent = n / total_words,
+           rank = 10 * floor(rank / 10)) %>%
+    ggplot(aes(as.factor(rank), percent)) +
+    # Make a boxplot
+    geom_boxplot()

@@ -1,0 +1,18 @@
+# Tally the number of awards in AwardsPlayers by playerID
+nAwards <- AwardsPlayers %>% 
+  group_by(playerID) %>% 
+  tally()
+
+nAwards %>% 
+  # Filter to just the players in inducted 
+  semi_join(inducted, by = "playerID") %>% 
+  # Calculate the mean number of awards per player
+  summarize(avg_n = mean(n, na.rm = TRUE))
+
+nAwards %>% 
+  # Filter to just the players in nominated 
+  semi_join(nominated, by = "playerID") %>%
+  # Filter to players NOT in inducted 
+  anti_join(inducted, by = "playerID") %>%
+  # Calculate the mean number of awards per player
+  summarize(avg_n = mean(n, na.rm = TRUE))

@@ -1,0 +1,4 @@
+# Plot Gas vs. Temp
+plot(whiteside$Temp, whiteside$Gas,
+     xlab = "Outside temperature",
+     ylab = "Heating gas consumption")

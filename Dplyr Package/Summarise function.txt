@@ -1,0 +1,7 @@
+# hflights and dplyr are loaded in the workspace
+
+# Print out a summary with variables min_dist and max_dist
+summarise(hflights, min_dist = min(Distance), max_dist = max(Distance))
+
+# Print out a summary with variable max_div
+summarise(filter(hflights, Diverted == 1), max_div = max(Distance))

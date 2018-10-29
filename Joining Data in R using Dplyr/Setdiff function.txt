@@ -1,0 +1,9 @@
+# Select the song names from live
+live_songs <- live %>% select(song)
+
+# Select the song names from greatest_hits
+greatest_songs <- greatest_hits %>% select(song)
+
+# Create the new dataset using a set operation
+live_songs %>% 
+  setdiff(greatest_songs,live_songs)

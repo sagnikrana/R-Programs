@@ -1,0 +1,19 @@
+# What songs have the highest proportion of negative words?
+lyric_sentiment %>%
+    # Count using three arguments
+    count(song, sentiment, total_words) %>%
+    ungroup() %>%
+    # Make a new percent column with mutate 
+    mutate(percent = n / total_words) %>%
+    # Filter for only negative words
+    filter(sentiment == "negative") %>%
+    # Arrange by descending percent
+    arrange(desc(percent))
+
+# What songs have the highest proportion of positive words?
+lyric_sentiment %>%
+    count(song, sentiment, total_words) %>%
+    ungroup() %>%
+    mutate(percent = n / total_words) %>%
+    filter(sentiment == "positive") %>%
+    arrange(desc(percent))

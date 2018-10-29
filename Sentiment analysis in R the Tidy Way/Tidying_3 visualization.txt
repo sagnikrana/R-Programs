@@ -1,0 +1,15 @@
+library(tidyr)
+# Load the ggplot2 package
+library(ggplot2)
+
+tidy_shakespeare %>%
+  inner_join(get_sentiments("bing")) %>%
+  count(title, type, index = linenumber %/% 70, sentiment) %>%
+  spread(sentiment, n, fill = 0) %>%
+  mutate(sentiment = positive - negative) %>%
+  # Put index on x-axis, sentiment on y-axis, and map comedy/tragedy to fill
+  ggplot(aes(index, sentiment, fill = type)) +
+  # Make a bar chart with geom_col()
+  geom_col() +
+  # Separate panels with facet_wrap()
+  facet_wrap(~ title, scales = "free_x")

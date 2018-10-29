@@ -1,0 +1,25 @@
+# Examine hank_years and hank_charts
+
+hank_years
+
+hank_charts
+
+ 
+
+hank_years %>%
+
+  # Reorder hank_years alphabetically by song title
+
+  arrange(song) %>%
+
+  # Select just the year column
+
+  select(year) %>%
+
+  # Bind the year column
+
+  bind_cols(hank_charts) %>%
+
+  # Arrange the finished dataset
+
+  arrange(year,song)

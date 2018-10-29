@@ -1,0 +1,18 @@
+# tweets_bing has been pre-defined
+tweets_bing
+
+tweets_bing %>% 
+  # Group by two columns: state and sentiment
+  group_by(state, sentiment) %>%
+  # Use summarize to calculate the mean frequency for these groups
+  summarize(freq = mean(freq)) %>%
+  spread(sentiment, freq) %>%
+  ungroup() %>%
+  # Calculate the ratio of positive to negative words
+  mutate(ratio = positive / negative,
+         state = reorder(state, ratio)) %>%
+  # Use aes() to put state on the x-axis and ratio on the y-axis
+  ggplot(aes(state, ratio)) +
+  # Make a plot with points using geom_point()
+  geom_point() +
+  coord_flip()

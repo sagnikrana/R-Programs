@@ -1,0 +1,8 @@
+# hflights is in the workspace as a tbl, with translated carrier names
+
+# Make an ordered per-carrier summary of hflights
+hflights %>%
+  group_by(UniqueCarrier) %>%
+  summarise(p_canc = ((mean(Cancelled == 1)*100)),
+            avg_delay = mean(ArrDelay,na.rm = T)) %>%
+  arrange(avg_delay, p_canc)

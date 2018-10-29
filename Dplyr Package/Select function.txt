@@ -1,0 +1,11 @@
+# hflights is pre-loaded as a tbl, together with the necessary libraries.
+print(hflights)
+# Print out a tbl with the four columns of hflights related to delay
+selected_columns <- select(hflights,ActualElapsedTime,AirTime,ArrDelay,DepDelay)
+print(selected_columns)
+# Print out the columns Origin up to Cancelled of hflights
+selected_columns_1 <- select(hflights,Origin:Cancelled)
+print(selected_columns_1)
+# Answer to last question: be concise!
+selected_columns_2 <- select(hflights,Year:DayOfWeek,ArrDelay:Diverted)
+print(selected_columns_2)

@@ -1,0 +1,14 @@
+# Find indices of sugar NA values: missing
+missing <- is.na(food3$sugars_100g)
+
+# Replace NA values with 0
+food3$sugars_100g[missing] <- 0
+
+# Create first histogram
+hist(food3$sugars_100g, breaks = 100)
+
+# Create food4
+food4 <- food3[food3$sugars_100g > 0, ]
+
+# Create second histogram
+hist(food4$sugars_100g, breaks = 100)

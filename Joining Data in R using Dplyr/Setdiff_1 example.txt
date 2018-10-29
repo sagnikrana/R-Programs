@@ -1,0 +1,19 @@
+# Find the players who are in nominated, but not inducted
+notInducted <- nominated %>% 
+  setdiff(inducted)
+
+Salaries %>% 
+  # Find the players who are in notInducted
+  semi_join(notInducted, by = "playerID") %>%
+  # Calculate the max salary by player
+  group_by(playerID) %>% 
+  summarize(max_salary = max(salary, na.rm = TRUE)) %>% 
+  # Calculate the average of the max salaries
+  summarize(avg_salary = mean(max_salary, na.rm = TRUE))
+
+# Repeat for players who were inducted
+Salaries %>% 
+  semi_join(inducted, by = "playerID") %>% 
+  group_by(playerID) %>% 
+  summarize(max_salary = max(salary, na.rm = TRUE)) %>% 
+  summarize(avg_salary = mean(max_salary, na.rm = TRUE))

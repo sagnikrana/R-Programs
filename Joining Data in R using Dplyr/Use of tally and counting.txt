@@ -1,0 +1,11 @@
+lahmanNames %>%  
+  # Bind the data frames in lahmanNames
+  bind_rows(.id = "dataframe") %>%
+  # Group the result by var
+  group_by(var) %>%
+  # Tally the number of appearances
+  tally() %>%
+  # Filter the data
+  filter(n > 1) %>% 
+  # Arrange the results
+  arrange(desc(n))

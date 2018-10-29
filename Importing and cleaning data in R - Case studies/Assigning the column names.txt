@@ -1,0 +1,14 @@
+## att4 is pre-loaded
+
+# Define cnames vector (don't change)
+cnames <- c("state", "avg_attend_pct", "avg_hr_per_day", 
+            "avg_day_per_yr", "avg_hr_per_yr")
+
+# Assign column names of att4
+colnames(att4) <- cnames
+
+# Remove first two rows of att4: att5
+att5 <- att4[-c(1:2),]
+
+# View the names of att5
+names(att5)

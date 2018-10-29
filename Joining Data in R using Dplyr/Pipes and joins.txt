@@ -1,0 +1,10 @@
+# Find guitarists in bands dataset (don't change)
+temp <- left_join(bands, artists, by = c("first", "last"))
+temp <- filter(temp, instrument == "Guitar")
+select(temp, first, last, band)
+
+# Reproduce code above using pipes
+bands %>% 
+  left_join(artists, by = c("first", "last")) %>% 
+  filter(instrument == "Guitar") %>% 
+  select(first, last, band)

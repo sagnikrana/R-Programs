@@ -1,0 +1,9 @@
+library(MASS)
+# Build a linear regression model for the whiteside data
+linear_model <- lm(formula = whiteside$Gas~whiteside$Temp,data = whiteside)
+
+# Create a Gas vs. Temp scatterplot from the whiteside data
+plot(whiteside$Gas,whiteside$Temp)
+
+# Use abline() to add the linear regression line
+abline(linear_model)

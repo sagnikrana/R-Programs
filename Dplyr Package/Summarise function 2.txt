@@ -1,0 +1,16 @@
+# hflights is available with full names for the carriers
+
+# Generate summarizing statistics for hflights
+summarise(hflights, 
+          n_obs = n(), 
+          n_carrier = n_distinct(UniqueCarrier), 
+          n_dest = n_distinct(Dest))
+
+# All American Airline flights
+aa <- filter(hflights, UniqueCarrier == "American")
+
+# Generate summarizing statistics for aa 
+summarise(aa, 
+          n_flights = n(), 
+          n_canc = sum(Cancelled == 1),
+          avg_delay = mean(ArrDelay, na.rm = TRUE))

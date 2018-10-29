@@ -1,0 +1,9 @@
+# Examine discography and jimi
+discography
+jimi
+
+jimi %>% 
+  # Bind jimi into a single data frame
+  bind_rows(.id = "album") %>% 
+  # Make a complete data frame
+  left_join(discography)

@@ -1,0 +1,11 @@
+tidy_tv %>% 
+    anti_join(stop_words) %>%
+    # Count by word with sort = TRUE
+    count(word, sort = TRUE)
+    
+tidy_tv %>%
+    # Count by station
+    count(station) %>%
+    # Rename the new column station_total
+    rename(station_total = n)
+    

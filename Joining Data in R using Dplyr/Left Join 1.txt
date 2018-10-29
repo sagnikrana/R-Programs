@@ -1,0 +1,9 @@
+# Identify the key column
+elvis_songs
+elvis_movies
+
+elvis_movies %>% 
+  # Left join elvis_songs to elvis_movies by this column
+  left_join(elvis_songs, by = c("name" = "movie")) %>% 
+  # Rename columns
+  rename(movie = name, song = name.y)

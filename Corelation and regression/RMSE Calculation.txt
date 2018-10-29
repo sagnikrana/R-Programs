@@ -1,0 +1,9 @@
+# View summary of model
+summary(mod)
+
+# Compute the mean of the residuals
+var = residuals(mod)
+var1 = mean(var)
+print(var1)
+# Compute RMSE
+sqrt(sum(residuals(mod)^2) / df.residual(mod))

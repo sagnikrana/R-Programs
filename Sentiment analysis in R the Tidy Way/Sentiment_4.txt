@@ -1,0 +1,16 @@
+# Which stations use the most negative words?
+tv_sentiment %>% 
+    count(station, sentiment, station_total) %>%
+    # Define a new column percent
+    mutate(percent = n / station_total) %>%
+    # Filter only for negative words
+    filter(sentiment == "negative") %>%
+    # Arrange by percent
+    arrange(percent)
+    
+# Now do the same but for positive words
+tv_sentiment %>% 
+    count(station, sentiment, station_total) %>%
+    mutate(percent = n / station_total) %>%
+    filter(sentiment == "positive") %>%
+    arrange(percent)    

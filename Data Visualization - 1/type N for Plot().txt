@@ -1,0 +1,20 @@
+# Compute max_hp
+max_hp <- max(Cars93$Horsepower,mtcars$hp)
+
+# Compute max_mpg
+max_mpg <- max(Cars93$MPG.city, Cars93$MPG.highway, mtcars$mpg)
+
+# Create plot with type = "n"               
+plot(max_hp, max_mpg,
+     type = "n", xlim = c(0, max_hp),
+     ylim = c(0,max_mpg), xlab = "Horsepower",
+     ylab = "Miles per gallon")
+
+# Add open circles to plot
+points(mtcars$mpg, mtcars$hp, pch = 1)
+
+# Add solid squares to plot
+points(Cars93$MPG.city, Cars93$Horsepower, pch = 15)
+
+# Add open triangles to plot
+points(Cars93$MPG.highway, Cars93$Horsepower, pch = 2)

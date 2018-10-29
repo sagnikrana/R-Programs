@@ -1,0 +1,10 @@
+## mbta3 is pre-loaded
+
+# Load tidyr
+library(tidyr)
+
+# Gather columns of mbta3: mbta4
+mbta4 <- gather(mbta3, month, thou_riders, -mode)
+
+# View the head of mbta4
+head(mbta4)

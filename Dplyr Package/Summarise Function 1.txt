@@ -1,0 +1,13 @@
+# hflights is available
+print(hflights)
+# Remove rows that have NA ArrDelay: temp1
+temp1 <- filter(hflights,!is.na(ArrDelay))
+print(temp1)
+# Generate summary about ArrDelay column of temp1
+summarise(temp1,earliest = min(ArrDelay),average = mean(ArrDelay),latest = max(ArrDelay),sd = sd(ArrDelay))
+
+# Keep rows that have no NA TaxiIn and no NA TaxiOut: temp2
+temp2 <- filter(hflights,!is.na(TaxiIn),!is.na(TaxiOut))
+print(temp2)
+# Print the maximum taxiing difference of temp2 with summarise()
+summarise(temp2,max_taxi_diff = max(abs(TaxiIn-TaxiOut)))

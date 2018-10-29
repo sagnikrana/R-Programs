@@ -1,0 +1,14 @@
+par(mfrow = c(1,2))
+# Create index16, pointing to 16-week chicks
+index16 <- which(ChickWeight$Time == 16)
+
+# Get the 16-week chick weights
+weights = ChickWeight$weight[index16]
+print(weights)
+# Plot the normalized histogram
+hist(weights,main = "Weights")
+
+# Add the density curve to the histogram
+truehist(weights)
+
+lines(density(weights))

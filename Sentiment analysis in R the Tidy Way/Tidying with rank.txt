@@ -1,0 +1,18 @@
+# Load tidytext
+library(tidytext)
+
+tidy_shakespeare <- shakespeare %>%
+  # Group by the titles of the plays
+  group_by(title) %>%
+  # Define a new column linenumber
+  mutate(linenumber = row_number()) %>%
+  # Transform the non-tidy text data to tidy text data
+  unnest_tokens(word, text) %>%
+  ungroup()
+
+print(tidy_shakespeare)
+
+# Pipe the tidy Shakespeare data frame to the next line
+tidy_shakespeare %>% 
+  # Use count to find out how many times each word is used
+  count(word, sort = TRUE)

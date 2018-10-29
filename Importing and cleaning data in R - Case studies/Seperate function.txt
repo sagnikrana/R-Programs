@@ -1,0 +1,12 @@
+## sales3 is pre-loaded in your workspace
+
+# Load tidyr
+library(tidyr)
+
+# Split event_date_time: sales4
+sales4 <- separate(sales3, event_date_time,
+                   c("event_dt","event_time"), sep = " ")
+
+# Split sales_ord_create_dttm: sales5
+sales5 <- separate(sales4, sales_ord_create_dttm,
+                   c("ord_create_dt","ord_create_time"), sep = " ")

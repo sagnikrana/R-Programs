@@ -1,0 +1,8 @@
+# Create MPG.city vs. Horsepower plot with solid squares
+plot(Cars93$Horsepower, Cars93$MPG.city, pch = 15)
+
+# Create index3, pointing to 3-cylinder cars
+index3 <- which(Cars93$Cylinders == 3)
+
+# Add text giving names of cars next to data points
+text(x = Cars93$Horsepower[index3], y = Cars93$MPG.city[index3],labels = Cars93$Make[index3], adj = 0)

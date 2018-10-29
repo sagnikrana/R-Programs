@@ -1,0 +1,17 @@
+# Create row1, row2, and layoutVector
+row1 <- c(1, 0, 0)
+row2 <- c(0, 2, 2)
+layoutVector <- c(row1,row2,row2)
+
+# Convert layoutVector into layoutMatrix
+layoutMatrix <- matrix(layoutVector, byrow = TRUE, nrow = 3)
+
+# Set up the plot array
+layout(layoutMatrix, widths = rep.int(1, ncol(layoutMatrix)),
+       heights = rep.int(1, nrow(layoutMatrix)), respect = FALSE)
+
+# Plot scatterplot
+plot(Boston$rad,Boston$zn)
+
+# Plot sunflower plot
+sunflowerplot(Boston$rad,Boston$zn)

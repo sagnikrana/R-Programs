@@ -1,0 +1,15 @@
+# Load the car package to make qqPlot() available
+library(car)
+library(MASS)
+par(mfrow = c(1,2))
+# Create index16, pointing to 16-week chicks
+index16 <- which(ChickWeight$Time == 16)
+
+# Get the 16-week chick weights
+weights <- ChickWeight$weight[index16]
+
+# Show the normal QQ-plot of the chick weights
+qqPlot(weights)
+
+# Show the normal QQ-plot of the Boston$tax data
+qqPlot(Boston$tax)

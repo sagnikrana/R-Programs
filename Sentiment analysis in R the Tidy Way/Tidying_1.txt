@@ -1,0 +1,16 @@
+sentiment_counts <- tidy_shakespeare %>%
+    # Implement sentiment analysis using the "bing" lexicon
+    inner_join(get_sentiments("bing")) %>%
+    # Count the number of words by title, type, and sentiment
+    count(title,type,sentiment)
+
+sentiment_counts %>%
+    # Group by the titles of the plays
+    group_by(title) %>%
+    # Find the total number of words in each play
+    mutate(total = sum(n),
+    # Calculate the number of words divided by the total
+           percent = n/total) %>%
+    # Filter the results for only negative sentiment
+    filter(sentiment == "negative") %>%
+    arrange(percent)
